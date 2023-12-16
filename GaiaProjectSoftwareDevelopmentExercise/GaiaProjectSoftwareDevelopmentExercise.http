@@ -1,0 +1,6 @@
+@GaiaProjectSoftwareDevelopmentExercise_HostAddress = http://localhost:5207
+
+GET {{GaiaProjectSoftwareDevelopmentExercise_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
