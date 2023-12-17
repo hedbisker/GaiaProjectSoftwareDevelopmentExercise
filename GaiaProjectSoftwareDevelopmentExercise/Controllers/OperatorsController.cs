@@ -7,25 +7,11 @@ namespace GaiaProjectSoftwareDevelopmentExercise.Controllers
     public class OperatorsController : ControllerBase
     {
         private readonly NumbersOperationService numbersOperationService;
-
+        private DataBaseManager dataBaseManager = new DataBaseManager();
         public OperatorsController()
         {
             this.numbersOperationService = new NumbersOperationService();
         }
-
-        [HttpGet("[action]")]
-        public int Get()
-        {
-            return 2;
-        }
-
-        [HttpGet("[action]")]
-        public int xxx()
-        {
-                return 1;
-          
-        }
-
 
         [HttpGet("[action]")]
         public IActionResult GetListOfOperators()
@@ -51,6 +37,7 @@ namespace GaiaProjectSoftwareDevelopmentExercise.Controllers
             try
             {
                 double result = numbersOperationService.Add(first, second);
+                dataBaseManager.addValues("AddNumbers", first.ToString(), second.ToString(), result.ToString());
                 return Ok(result);
             }
             catch (Exception ex)
@@ -65,6 +52,7 @@ namespace GaiaProjectSoftwareDevelopmentExercise.Controllers
             try
             {
                 double result = numbersOperationService.Subtract(first, second);
+                dataBaseManager.addValues("SubtractNumbers", first.ToString(), second.ToString(), result.ToString());
                 return Ok(result);
             }
             catch (Exception ex)
@@ -79,6 +67,7 @@ namespace GaiaProjectSoftwareDevelopmentExercise.Controllers
             try
             {
                 double result = numbersOperationService.Multiply(first, second);
+                dataBaseManager.addValues("MultiplyNumbers", first.ToString(), second.ToString(), result.ToString());
                 return Ok(result);
             }
             catch (Exception ex)
@@ -93,6 +82,7 @@ namespace GaiaProjectSoftwareDevelopmentExercise.Controllers
             try
             {
                 double result = numbersOperationService.Divide(first, second);
+                dataBaseManager.addValues("DivideNumbers", first.ToString(), second.ToString(), result.ToString());
                 return Ok(result);
             }
             catch (Exception ex)
@@ -107,6 +97,7 @@ namespace GaiaProjectSoftwareDevelopmentExercise.Controllers
             try
             {
                 string result = string.Concat(first, second);
+                dataBaseManager.addValues("ConcatenateStrings", first.ToString(), second.ToString(), result.ToString());
                 return Ok(result);
             }
             catch (Exception ex)

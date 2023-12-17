@@ -21,7 +21,7 @@ namespace GaiaProjectClientSide
                     comboBox1.DataSource = JsonConvert.DeserializeObject<List<string>>(response.Content.ReadAsStringAsync().Result);
 
                 }
-                catch (HttpRequestException ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show($"Error loading history: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -59,7 +59,7 @@ namespace GaiaProjectClientSide
                     textBox3.Text = JsonConvert.DeserializeObject<string>(response.Content.ReadAsStringAsync().Result);
                     
                 }
-                catch (HttpRequestException ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show($"Error calculation: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
